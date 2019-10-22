@@ -1,7 +1,9 @@
 import { Store, createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
-import { schoolsReducer } from "./store/schools/reducer";
 import { combineReducers } from "redux";
+import createSagaMiddleware from "redux-saga";
+
+import { schoolsReducer } from "./store/schools/reducer";
+import { courtsReducer } from "./store/courts/reducer";
 
 import { ApplicationState, rootSaga } from "./store";
 
@@ -15,7 +17,8 @@ export default function configureStore(initialState: {}): Store<
   // we'll be passing from our entry point.
   const store = createStore(
     combineReducers({
-      schools: schoolsReducer
+      schools: schoolsReducer,
+      courts: courtsReducer
     }),
     initialState,
     applyMiddleware(sagaMiddleware)

@@ -9,9 +9,9 @@ export type Schools = {
 };
 
 export enum SchoolActionTypes {
-  FETCH_REQUEST = "FETCH_REQUEST",
-  FETCH_SUCCESS = "FETCH_SUCCESS",
-  FETCH_ERROR = "FETCH_ERROR"
+  FETCH_REQUEST = "FETCH_SCHOOLS_REQUEST",
+  FETCH_SUCCESS = "FETCH_SCHOOLS_SUCCESS",
+  FETCH_ERROR = "FETCH_SCHOOLS_ERROR"
 }
 
 export interface ISchoolsState {

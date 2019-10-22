@@ -4,7 +4,6 @@ import { SchoolActionTypes, Schools } from "./model";
 export const fetchRequest = () => action(SchoolActionTypes.FETCH_REQUEST);
 
 export const fetchSuccess = (data: Schools[]) => {
-  console.log({ data });
   return action(SchoolActionTypes.FETCH_SUCCESS, data);
 };
 
