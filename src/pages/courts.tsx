@@ -1,5 +1,5 @@
 import React from "react";
 
-const Courts = () => <p>Courts</p>;
+const Courts = () => <h1>Courts resources</h1>;
 
 export default Courts;

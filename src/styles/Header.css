@@ -1,2 +1,31 @@
-.header___container {
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #282c34;
+}
+
+.header__nav {
+  display: inline-block;
+}
+
+.header__nav__list {
+  display: flex;
+  flex: 1;
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.header__nav__item,
+.header__logo {
+  padding: 1rem;
+  color: lightgreen;
+}
+
+.header__nav__item a {
+  color: lightgreen;
+  font-size: 18px;
 }

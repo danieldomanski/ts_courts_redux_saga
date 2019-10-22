@@ -1,9 +1,16 @@
-.App {
-  text-align: center;
+a {
+  text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
+p,
+li,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .App-header {
@@ -22,4 +29,5 @@
 }
 
 .app__container {
+  text-align: center;
 }

@@ -1,5 +1,5 @@
 import React from "react";
 
-const Home = () => <p>Home</p>;
+const Home = () => <h1>Witaj w CourtListener API!</h1>;
 
 export default Home;

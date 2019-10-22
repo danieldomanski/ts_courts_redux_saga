@@ -6,12 +6,12 @@ const Header = () => (
     <a href="/" className="header__logo">
       Home
     </a>
-    <nav>
-      <ul>
-        <li>
+    <nav className="header__nav">
+      <ul className="header__nav__list">
+        <li className="header__nav__item">
           <a href="/schools">Schools</a>
         </li>
-        <li>
+        <li className="header__nav__item">
           <a href="/courts">Courts</a>
         </li>
       </ul>
