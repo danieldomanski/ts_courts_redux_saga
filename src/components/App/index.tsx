@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header";
+import Router from "../Router";
 import "../../styles/App.css";
 
 const App: React.FC = () => {
@@ -7,7 +8,7 @@ const App: React.FC = () => {
     <div className="app__container">
       <Header></Header>
       <main className="app__main">
-        <h1>Witaj w CourtListener API!</h1>
+        <Router />
       </main>
     </div>
   );
