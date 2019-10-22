@@ -1,0 +1,25 @@
+.resources__container {
+  margin: 0 2rem;
+  text-align: left;
+}
+
+.resources__heading {
+  display: flex;
+  align-items: center;
+}
+
+.resources__item {
+  margin-bottom: 1rem;
+}
+
+.resources__row {
+  display: flex;
+}
+
+.resources__row__key {
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.resources__row__value {
+}
