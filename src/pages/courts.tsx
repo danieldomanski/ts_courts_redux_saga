@@ -37,7 +37,7 @@ class Courts extends React.Component<AllProps> {
 
             return (
               <>
-                <h3>{item["name"]}</h3>
+                <h3>{item["full_name"]}</h3>
                 <ul>
                   {keys.map(key => (
                     <li>
