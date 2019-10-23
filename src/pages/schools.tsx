@@ -1,25 +1,62 @@
 import React from "react";
 import { Dispatch } from "redux";
 import { RouteComponentProps } from "react-router-dom";
-import { fetchRequest } from "../store/schools/actions";
 import { connect } from "react-redux";
 import { ApplicationState } from "../store";
+import {
+  Schools as SchoolsType,
+  SCHOOLS_CACHE_KEY
+} from "../store/schools/model";
+import { fetchRequest, fetchSuccess } from "../store/schools/actions";
+
 import Button from "../components/Button";
+import CachedResource from "../components/CachedResource";
+
 import "../styles/Resources.css";
 
 interface PropsFromStore {
   loading: boolean;
-  items: { [key: string]: any }[];
+  items: SchoolsType[];
   errors?: string;
 }
 
 interface PropsFromDispatch {
   fetchRequest: typeof fetchRequest;
+  fetchSuccess: typeof fetchSuccess;
 }
 
 type AllProps = PropsFromStore & RouteComponentProps & PropsFromDispatch;
 
 class Schools extends React.Component<AllProps> {
+  storage: CachedResource<SchoolsType>;
+
+  constructor(props: AllProps) {
+    super(props);
+    this.storage = new CachedResource();
+  }
+
+  componentDidMount() {
+    const { items, fetchSuccess } = this.props;
+    const { isResourceCached, feedStoreFromCache } = this.storage;
+    const isCached = isResourceCached("schools");
+    const isResourceEmpty = items.length === 0;
+
+    if (isResourceEmpty && isCached) {
+      feedStoreFromCache(SCHOOLS_CACHE_KEY, fetchSuccess);
+    }
+  }
+
+  componentDidUpdate() {
+    const { items } = this.props;
+    const { isResourceCached, saveToCache } = this.storage;
+    const isCached = isResourceCached("schools");
+    const isResourceEmpty = items.length === 0;
+
+    if (!isResourceEmpty && !isCached) {
+      saveToCache(SCHOOLS_CACHE_KEY, items);
+    }
+  }
+
   render() {
     const { items, errors, fetchRequest } = this.props;
 
@@ -32,7 +69,7 @@ class Schools extends React.Component<AllProps> {
           <Button onClick={fetchRequest}>Pobierz dane</Button>
         </header>
         <div className="resources__item">
-          {items.map(item => {
+          {items.map((item: any) => {
             const keys = Object.keys(item);
 
             return (
@@ -42,7 +79,7 @@ class Schools extends React.Component<AllProps> {
                   {keys.map(key => (
                     <li>
                       <span className="resources__row__key">{key}:</span>
-                      <span>{JSON.stringify(item[key])}</span>
+                      <span className="resources__row__key">{item[key]}:</span>
                     </li>
                   ))}
                 </ul>
@@ -62,7 +99,8 @@ const mapStateToProps = ({ schools }: ApplicationState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchRequest: () => dispatch(fetchRequest())
+  fetchRequest: () => dispatch(fetchRequest()),
+  fetchSuccess: (data: SchoolsType[]) => dispatch(fetchSuccess(data))
 });
 
 export default connect(

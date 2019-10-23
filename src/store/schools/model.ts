@@ -8,6 +8,8 @@ export type Schools = {
   ein?: any;
 };
 
+export const SCHOOLS_CACHE_KEY = "schools";
+
 export enum SchoolActionTypes {
   FETCH_REQUEST = "FETCH_SCHOOLS_REQUEST",
   FETCH_SUCCESS = "FETCH_SCHOOLS_SUCCESS",
