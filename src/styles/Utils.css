@@ -1,0 +1,11 @@
+.button__container {
+  border: 0;
+  border: 2px solid #282c34;
+  background-color: transparent;
+  color: #282c34;
+  font-weight: 600;
+  margin-left: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 14px;
+  text-transform: uppercase;
+}

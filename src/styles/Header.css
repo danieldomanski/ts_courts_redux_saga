@@ -1,0 +1,32 @@
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #282c34;
+  box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.2);
+}
+
+.header__nav {
+  display: inline-block;
+}
+
+.header__nav__list {
+  display: flex;
+  flex: 1;
+}
+
+.header__logo {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.header__nav__item,
+.header__logo {
+  padding: 1rem;
+  color: #09d3ac;
+}
+
+.header__nav__item a {
+  color: #09d3ac;
+  font-size: 18px;
+}
