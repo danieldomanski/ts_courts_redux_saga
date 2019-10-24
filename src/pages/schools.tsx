@@ -8,7 +8,7 @@ import {
   SCHOOLS_CACHE_KEY
 } from "../store/schools/model";
 import { fetchRequest, fetchSuccess } from "../store/schools/actions";
-
+import ResourceItem from "../components/ResourceItem";
 import Button from "../components/Button";
 import CachedResource from "../components/CachedResource";
 
@@ -66,26 +66,12 @@ class Schools extends React.Component<AllProps> {
       <div className="resources__container">
         <header className="resources__heading">
           <h1>School resources</h1>
-          <Button onClick={fetchRequest}>Pobierz dane</Button>
+          <Button onClick={fetchRequest}>Fetch data</Button>
         </header>
-        <div className="resources__item">
-          {items.map((item: any) => {
-            const keys = Object.keys(item);
-
-            return (
-              <>
-                <h3>{item["name"]}</h3>
-                <ul>
-                  {keys.map(key => (
-                    <li>
-                      <span className="resources__row__key">{key}:</span>
-                      <span className="resources__row__key">{item[key]}:</span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            );
-          })}
+        <div className="resources__list">
+          {items.map(item => (
+            <ResourceItem item={item} />
+          ))}
         </div>
       </div>
     );

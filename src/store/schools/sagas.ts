@@ -10,7 +10,7 @@ function* handleFetch() {
   try {
     // To call async functions, use redux-saga's `call()`.
     const res = yield call(callApi, "get", API_ENDPOINT, "/schools");
-    console.log(res);
+
     if (res.error) {
       yield put(fetchError(res.error));
     } else if (res.detail) {

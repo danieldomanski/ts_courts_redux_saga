@@ -8,7 +8,7 @@ export async function callApi(
     method,
     headers: {
       Accept: "application/json",
-      Authorization: "Token 0a45c2f180d79943a92b9d6957c120e4c4876c3f"
+      Authorization: `Token ` + process.env.REACT_APP_COURTLISTENER_API_KEY
     },
     body: JSON.stringify(data)
   });
